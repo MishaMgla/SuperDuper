@@ -10,6 +10,7 @@ const HistoryContext = createContext<IHistoryProvider>({} as IHistoryProvider);
 
 export const HistoryProvider = (props: { children: ReactNode }) => {
   const [items, setItems] = useState<OwnedNft[]>(() => {
+    if (typeof window === "undefined") return [];
     const historyItems = localStorage.getItem("history");
     if (!historyItems) return [];
     return JSON.parse(historyItems);

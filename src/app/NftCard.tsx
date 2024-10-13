@@ -15,7 +15,7 @@ export const NftCard = ({ nft }: NftCardProps) => {
   const { add } = useHistory();
 
   const clickHandler = () => {
-    if (!isFullscreen) add(nft);
+    if (isFullscreen) add(nft);
     setFullscreen(!isFullscreen);
   };
 
@@ -30,12 +30,12 @@ export const NftCard = ({ nft }: NftCardProps) => {
 
   return (
     <>
-      <motion.div
+      <div
         className="w-[200px] h-[200px] shadow-md rounded-lg overflow-hidden relative"
         onClick={clickHandler}
       >
         <NftThumbnail thumbnailUrl={thumbnailUrl} alt={nft.name || ""} />
-      </motion.div>
+      </div>
 
       <AnimatePresence>
         {isFullscreen && (

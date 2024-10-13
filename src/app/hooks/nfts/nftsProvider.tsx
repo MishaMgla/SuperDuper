@@ -11,7 +11,7 @@ const NftsContext = createContext<INftsContext>({} as INftsContext);
 
 export const NftsProvider = (props: { children: ReactNode }) => {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState<OwnedNft[]>([]);
+  const [nfts, setNfts] = useState<OwnedNft[]>([]);
 
   const fetchNfts = async (wallet: string) => {
     try {
@@ -22,7 +22,7 @@ export const NftsProvider = (props: { children: ReactNode }) => {
       });
       if (res.status !== 200) return;
       const json = await res.json();
-      setData(json.data);
+      setNfts(json.data);
     } catch (error) {
       console.log("Error fetching nfts");
     } finally {
@@ -31,7 +31,7 @@ export const NftsProvider = (props: { children: ReactNode }) => {
   };
 
   return (
-    <NftsContext.Provider value={{ nfts: data, loading, fetchNfts }}>
+    <NftsContext.Provider value={{ nfts, loading, fetchNfts }}>
       {props.children}
     </NftsContext.Provider>
   );

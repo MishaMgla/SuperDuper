@@ -7,16 +7,6 @@ interface INftsContext {
   fetchNfts: (wallet: string) => void;
 }
 
-export interface Detrust {
-  creator: string;
-  inherited: boolean;
-  inheritorHash: string;
-  lastOwnerOp: BigInt;
-  name: string;
-  silenceTime: BigInt;
-  address: string;
-}
-
 const NftsContext = createContext<INftsContext>({} as INftsContext);
 
 export const NftsProvider = (props: { children: ReactNode }) => {

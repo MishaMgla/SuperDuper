@@ -1,7 +1,7 @@
 import { OwnedNft } from "alchemy-sdk";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import placeholderImage from "./assets/placeholder.png";
+import placeholderImage from "../assets/placeholder.png";
 import Image from "next/image";
 import { useHistory } from "../hooks/history/historyProvider";
 import { NftThumbnail } from "./NftThumbnail";
@@ -41,18 +41,20 @@ export const NftCard = ({ nft }: NftCardProps) => {
         {isFullscreen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.1 }}
-            animate={{ opacity: 1, scale: 0.6 }}
+            animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.1 }}
-            className="w-screen h-screen fixed z-40"
+            className="w-screen h-screen fixed z-40 flex justify-center items-center pb-14"
             onClick={clickHandler}
           >
-            <Image
-              src={fullViewUrl}
-              alt={nft.name || ""}
-              objectFit="contain"
-              objectPosition="center"
-              fill={true}
-            />
+            <div className="w-[65%] h-[65%] relative">
+              <Image
+                src={fullViewUrl}
+                alt={nft.name || ""}
+                objectFit="contain"
+                objectPosition="center"
+                fill={true}
+              />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

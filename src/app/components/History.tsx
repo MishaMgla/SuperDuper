@@ -1,7 +1,7 @@
 import { useHistory } from "../hooks/history/historyProvider";
 import { OwnedNft } from "alchemy-sdk";
 import { NftThumbnail } from "./NftThumbnail";
-import placeholderImage from "./assets/placeholder.png";
+import placeholderImage from "../assets/placeholder.png";
 
 const HistoryItem = ({ nft }: { nft: OwnedNft }) => {
   const fullViewUrl =

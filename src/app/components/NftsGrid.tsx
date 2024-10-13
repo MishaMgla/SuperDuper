@@ -1,4 +1,4 @@
-import { useNfts } from "./hooks/nfts/nftsProvider";
+import { useNfts } from "../hooks/nfts/nftsProvider";
 import { NftCard } from "./NftCard";
 
 export const NftsGrid = () => {

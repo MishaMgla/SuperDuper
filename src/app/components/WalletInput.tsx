@@ -1,4 +1,4 @@
-import { useNfts } from "./hooks/nfts/nftsProvider";
+import { useNfts } from "../hooks/nfts/nftsProvider";
 
 const ETH_WALLET_LENGTH = 42;
 

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import placeholderImage from "./assets/placeholder.png";
 import Image from "next/image";
-import { useHistory } from "./hooks/history/historyProvider";
+import { useHistory } from "../hooks/history/historyProvider";
 import { NftThumbnail } from "./NftThumbnail";
 
 export interface NftCardProps {

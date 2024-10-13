@@ -1,11 +1,11 @@
 "use client";
 
 import { NftsProvider } from "./hooks/nfts/nftsProvider";
-import { WalletInput } from "./WalletInput";
-import { NftsGrid } from "./NftsGrid";
+import { WalletInput } from "./components/WalletInput";
+import { NftsGrid } from "./components/NftsGrid";
 import { Loader } from "./Loader";
 import { HistoryProvider } from "./hooks/history/historyProvider";
-import { History } from "./History";
+import { History } from "./components/History";
 
 export default function Home() {
   return (

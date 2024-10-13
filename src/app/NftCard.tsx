@@ -3,6 +3,8 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import placeholderImage from "./assets/placeholder.png";
 import Image from "next/image";
+import { useHistory } from "./hooks/history/historyProvider";
+import { NftThumbnail } from "./NftThumbnail";
 
 export interface NftCardProps {
   nft: OwnedNft;
@@ -10,8 +12,10 @@ export interface NftCardProps {
 
 export const NftCard = ({ nft }: NftCardProps) => {
   const [isFullscreen, setFullscreen] = useState(false);
+  const { add } = useHistory();
 
   const clickHandler = () => {
+    if (!isFullscreen) add(nft);
     setFullscreen(!isFullscreen);
   };
 
@@ -30,13 +34,7 @@ export const NftCard = ({ nft }: NftCardProps) => {
         className="w-[200px] h-[200px] shadow-md rounded-lg overflow-hidden relative"
         onClick={clickHandler}
       >
-        <Image
-          src={thumbnailUrl}
-          alt={nft.name || ""}
-          objectFit="contain"
-          objectPosition="center"
-          fill={true}
-        />
+        <NftThumbnail thumbnailUrl={thumbnailUrl} alt={nft.name || ""} />
       </motion.div>
 
       <AnimatePresence>

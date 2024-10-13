@@ -4,6 +4,8 @@ import { NftsProvider } from "./hooks/nfts/nftsProvider";
 import { WalletInput } from "./WalletInput";
 import { NftsGrid } from "./NftsGrid";
 import { Loader } from "./Loader";
+import { HistoryProvider } from "./hooks/history/historyProvider";
+import { History } from "./History";
 
 export default function Home() {
   return (
@@ -13,7 +15,10 @@ export default function Home() {
         <Loader />
       </header>
       <main>
-        <NftsGrid />
+        <HistoryProvider>
+          <NftsGrid />
+          <History />
+        </HistoryProvider>
       </main>
     </NftsProvider>
   );

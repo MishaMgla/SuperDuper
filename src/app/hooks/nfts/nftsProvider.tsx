@@ -24,7 +24,7 @@ export const NftsProvider = (props: { children: ReactNode }) => {
       const json = await res.json();
       setNfts(json.data);
     } catch (error) {
-      console.log("Error fetching nfts");
+      console.log("Error fetching nfts", error);
     } finally {
       setLoading(false);
     }

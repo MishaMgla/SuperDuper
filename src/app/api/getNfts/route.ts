@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ data: json.ownedNfts }, { status: 200 });
   } catch (error) {
     return NextResponse.json(
-      { data: "Internal server error" },
+      { data: "Internal server error", details: error },
       { status: 500 }
     );
   }
